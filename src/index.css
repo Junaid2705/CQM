@@ -1,0 +1,463 @@
+/* ==========================================================================
+   Resolvia — Modern Minimalist Design System (Agency Grade)
+   ========================================================================== */
+
+:root {
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Refined Minimalist Palette */
+  --slate-950: #020617;
+  --slate-900: #0f172a;
+  --slate-800: #1e293b;
+  --slate-700: #334155;
+  --slate-600: #475569;
+  --slate-500: #64748b;
+  --slate-400: #94a3b8;
+  --slate-200: #e2e8f0;
+  --slate-100: #f1f5f9;
+  --slate-50:  #f8fafc;
+  
+  --accent-primary: #0f172a;
+  --accent-blue: #2563eb;
+  --accent-blue-subtle: #eff6ff;
+  --border-clean: #e2e8f0;
+  --border-focus: #94a3b8;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: #ffffff;
+  color: var(--slate-900);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family);
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  color: var(--slate-900);
+}
+
+/* ==========================================================================
+   1. Clean Navigation Bar (No Top Info Bar)
+   ========================================================================== */
+.agency-navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-clean);
+  padding: 0.85rem 0;
+  transition: all 0.2s ease;
+}
+
+.brand-mark {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  color: var(--slate-900);
+}
+
+.brand-icon-box {
+  width: 32px;
+  height: 32px;
+  background: var(--slate-900);
+  color: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--slate-900);
+}
+
+.nav-link-clean {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--slate-600);
+  padding: 0.45rem 0.85rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.nav-link-clean:hover {
+  color: var(--slate-950);
+}
+
+.nav-link-clean.active {
+  color: var(--slate-950);
+  font-weight: 600;
+}
+
+/* Single Unified Login Button */
+.btn-unified-login {
+  background: var(--slate-900);
+  color: #ffffff;
+  font-size: 0.86rem;
+  font-weight: 600;
+  padding: 0.48rem 1.15rem;
+  border-radius: 8px;
+  border: 1px solid var(--slate-900);
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+}
+
+.btn-unified-login:hover {
+  background: var(--slate-800);
+  border-color: var(--slate-800);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   2. Clean, Spacious Hero Section (No Login Forms or Buttons)
+   ========================================================================== */
+.agency-hero {
+  padding: 6rem 0 5rem;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-clean);
+}
+
+.hero-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background: var(--slate-50);
+  border: 1px solid var(--border-clean);
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--slate-700);
+}
+
+.agency-hero-title {
+  font-size: 3.4rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  color: var(--slate-900);
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .agency-hero-title {
+    font-size: 2.3rem;
+  }
+}
+
+.agency-hero-subtitle {
+  font-size: 1.18rem;
+  color: var(--slate-600);
+  line-height: 1.65;
+  max-width: 680px;
+  margin-bottom: 2.25rem;
+  font-weight: 400;
+}
+
+/* Clean Minimal Buttons */
+.btn-agency-primary {
+  background: var(--slate-900);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.65rem 1.4rem;
+  border-radius: 8px;
+  border: 1px solid var(--slate-900);
+  font-size: 0.92rem;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-agency-primary:hover {
+  background: var(--slate-800);
+  border-color: var(--slate-800);
+  color: #ffffff;
+}
+
+.btn-agency-secondary {
+  background: #ffffff;
+  color: var(--slate-700);
+  font-weight: 600;
+  padding: 0.65rem 1.4rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-clean);
+  font-size: 0.92rem;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-agency-secondary:hover {
+  background: var(--slate-50);
+  border-color: var(--slate-400);
+  color: var(--slate-900);
+}
+
+/* ==========================================================================
+   3. Refined Minimalist Cards & Sections
+   ========================================================================== */
+.section-clean {
+  padding: 5rem 0;
+}
+
+.section-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--slate-500);
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--slate-900);
+  margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--slate-600);
+  max-width: 620px;
+}
+
+/* Minimalist Clean Card */
+.card-clean {
+  background: #ffffff;
+  border: 1px solid var(--border-clean);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.card-clean:hover {
+  border-color: var(--slate-400);
+}
+
+.card-interactive {
+  cursor: pointer;
+}
+
+.card-interactive:hover {
+  border-color: var(--slate-700);
+  background-color: var(--slate-50);
+}
+
+/* ==========================================================================
+   4. Unified Role-Based Login Modal
+   ========================================================================== */
+.modal-backdrop-clean {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-card-clean {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid var(--border-clean);
+  width: 100%;
+  max-width: 480px;
+  padding: 2.25rem;
+  box-shadow: 0 20px 40px -12px rgba(15, 23, 42, 0.15);
+  animation: cleanFadeIn 0.18s ease-out;
+}
+
+@keyframes cleanFadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Segmented Control for Roles */
+.segmented-control {
+  display: flex;
+  background: var(--slate-100);
+  padding: 3px;
+  border-radius: 8px;
+  border: 1px solid var(--border-clean);
+  gap: 2px;
+}
+
+.segmented-btn {
+  flex: 1;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.42rem 0.5rem;
+  border: none;
+  background: transparent;
+  color: var(--slate-600);
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  text-align: center;
+}
+
+.segmented-btn.active {
+  background: #ffffff;
+  color: var(--slate-900);
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+/* Form Controls Clean */
+.form-label-clean {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--slate-700);
+  margin-bottom: 0.35rem;
+}
+
+.form-control-clean {
+  width: 100%;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: var(--slate-900);
+  background-color: #ffffff;
+  border: 1px solid var(--border-clean);
+  border-radius: 6px;
+  transition: border-color 0.15s ease;
+}
+
+.form-control-clean:focus {
+  outline: none;
+  border-color: var(--slate-800);
+}
+
+/* ==========================================================================
+   5. Status Badges & Lifecycle Indicators
+   ========================================================================== */
+.badge-clean-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border-clean);
+  background: var(--slate-50);
+  color: var(--slate-700);
+}
+
+.badge-clean-status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+/* Drawer / Slide-out Clean */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: 1050;
+}
+
+.drawer-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 580px;
+  background: #ffffff;
+  z-index: 1060;
+  border-left: 1px solid var(--border-clean);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Priority Tags */
+.priority-urgent { background-color: #fef2f2; color: #991b1b; border: 1px solid #fee2e2; }
+.priority-high { background-color: #fff7ed; color: #9a3412; border: 1px solid #ffedd5; }
+.priority-medium { background-color: #fefce8; color: #854d0e; border: 1px solid #fef9c3; }
+.priority-low { background-color: #f8fafc; color: #475569; border: 1px solid #e2e8f0; }
+
+/* Mobile Touch Target Action Buttons */
+.btn-mobile-touch {
+  min-height: 46px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 8px;
+  padding: 0.65rem 1.15rem;
+  font-size: 0.88rem;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.btn-mobile-touch:active {
+  transform: scale(0.98);
+}
+
+/* Quick Assign Dropdown */
+.select-quick-assign {
+  font-size: 0.78rem;
+  padding: 0.3rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-clean);
+  background-color: #ffffff;
+  color: var(--slate-900);
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+  max-width: 180px;
+}
+
+.select-quick-assign:focus {
+  border-color: var(--slate-900);
+  outline: none;
+}
+
+/* Tracking Progress Pill */
+.tracking-progress-track {
+  height: 5px;
+  background-color: var(--slate-200);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.tracking-progress-fill {
+  height: 100%;
+  border-radius: 9999px;
+  background-color: var(--slate-900);
+  transition: width 0.3s ease;
+}
