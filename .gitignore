@@ -28,3 +28,13 @@ dist-ssr
 .env.local
 .env.production
 .env.development
+
+
+# Maven & Java build artifacts
+target/
+**/target/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
