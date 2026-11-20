@@ -1,6 +1,28 @@
 # Resolvia — Customer Query Management Web Application
 
-**Resolvia** is an enterprise-grade Customer Query & Field Operations Management web application prototype built for mission-critical infrastructure domains (Fiber Broadband, Smart Grids, Water/Gas Telemetry, EV Charging, Industrial Automation, and VoIP PBX).
+**Resolvia** is an enterprise-grade Customer Query & Field Operations Management full-stack web application built for mission-critical infrastructure domains (Fiber Broadband, Smart Grids, Water/Gas Telemetry, EV Charging, Industrial Automation, and VoIP PBX).
+
+---
+
+## 🏗️ Project Architecture
+
+The project is organized into an industry-standard full-stack separation:
+
+```
+CQM/
+├── backend/                  # Java 21 + Spring Boot 3 + Spring Data JPA + MySQL
+│   ├── src/main/java/        # Entities, Repositories, Services, Security, Controllers
+│   ├── src/main/resources/   # application.properties, schema-seed.sql
+│   └── pom.xml               # Maven dependencies and build configuration
+├── frontend/                 # React 18 + Vite + Bootstrap 5 + Lucide React
+│   ├── src/                  # Components, Pages, Data, Theme Styles
+│   ├── index.html            # Vite HTML entry point
+│   ├── package.json          # Node dependencies and scripts
+│   ├── vite.config.js        # Vite build configuration
+│   └── node_modules/         # Frontend dependencies (git-ignored)
+├── .gitignore                # Global gitignore covering node, build, and Java artifacts
+└── README.md                 # Full-stack documentation
+```
 
 ---
 
@@ -27,16 +49,18 @@
   - High-level KPIs, mean dispatch times, domain ticket distributions, and SLA audit export.
 - **Public Query Status Tracking**:
   - Interactive 9-phase visual stepper with step numbers, timestamps, and technician dossiers.
+- **Enterprise Security & Persistence**:
+  - Spring Security 6 with stateless JWT Bearer token authentication.
+  - Role-based authorization (`@PreAuthorize`) across `CUSTOMER`, `SUPERVISOR`, `FIELD_EXECUTIVE`, `MANAGER`.
+  - Spring Data JPA with MySQL 8.0 auto-updating schema and HikariCP connection pooling.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React 18
-- **Bundler & Dev Server**: Vite
-- **Styling**: Bootstrap 5 + Custom Modern Agency Design System
-- **Icons**: Lucide React
-- **State Management**: Reactive React state synced with `localStorage` persistence
+- **Backend**: Java 21, Spring Boot 3.3.5, Spring Security 6, Spring Data JPA, MySQL Connector/J, JJWT 0.12.6, Maven
+- **Frontend**: React 18, Vite 6, Bootstrap 5, Lucide React
+- **Database**: MySQL 8.0
 
 ---
 
@@ -44,37 +68,52 @@
 
 ### Prerequisites
 
+- Java 21 LTS
 - Node.js (v18 or higher recommended)
-- npm or pnpm
+- MySQL Server 8.0 running on port 3306
 
-### Installation
+---
+
+### 1. Backend Setup
 
 ```bash
-# Clone the repository
-git clone <repository-url>
-cd CQM
+cd backend
+mvn spring-boot:run
+```
+*(The backend runs on `http://localhost:8080`, and will auto-generate the `resolvia_db` schema in MySQL)*
 
-# Install dependencies
+---
+
+### 2. Frontend Setup
+
+In a separate terminal:
+
+```bash
+cd frontend
 npm install
-
-# Start development server
 npm run dev
 ```
+*(The frontend runs on `http://localhost:3000`)*
 
-The application will be accessible at `http://localhost:3000/`.
+---
 
-### Production Build
+### 3. Production Build
 
 ```bash
+# Frontend Build
+cd frontend
 npm run build
-npm run preview
+
+# Backend Build
+cd ../backend
+mvn clean package
 ```
 
 ---
 
 ## 👥 Demo User Credentials
 
-Use the **Sign In** modal in the header to switch between pre-configured enterprise personas:
+Use the **Sign In** modal in the frontend header to switch between pre-configured enterprise personas:
 
 | Role | Name | Demo Email | Password |
 | :--- | :--- | :--- | :--- |
